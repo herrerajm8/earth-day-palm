@@ -188,13 +188,7 @@
 </div>
 
 
-        <div class = "col-md-offset-11" style = "margin-top: 61px;">
-             <?php if((isset($_SESSION['email']))){ ?>
-                    <div class = "col-md-1">
-                        <a href = "logout.php"><button type="button" class = "btn btn-danger" style = "margin-top: 5px;">Logout</button></a>
-                    </div>
-            <?php } ?>
-        </div>
+        
     </div>
 </nav>
 
@@ -262,7 +256,7 @@
 <?php
 foreach($info as $val2){
 echo"
-<div class'mo".$val2->subjectID."'>
+
 <div class='modal fade' id='contentModal".$val2->subjectID."' role='dialog'>
         <div class='modal-dialog'>
 
@@ -309,7 +303,7 @@ echo"
 
                         <tr style = 'font-size:13px;'>
                             <td>
-                                ".$val->roomid."
+                                ".$val2->roomid."
                             </td>
                             <td>
                                 ".$val2->fName."&nbsp".$val2->lName."
@@ -326,7 +320,7 @@ echo"
                                 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                             </td>
                             <td id = '".$val2->subjectID."'>
-                                <button type='submit' class='btn btn-info enroll_btn' name = 'enroll' id = '".$val2->subSchedID.">Enroll</button>
+                                <button type='submit' class='btn btn-info enroll_btn' name = 'enroll' id = '".$val2->subSchedID."'>Enroll</button>
                             </td>
                         </tr>
 
@@ -360,10 +354,6 @@ $(document).ready(function(){
     var id = <?php echo $ID; ?>;
 
 
-    $(".bt").click(function(){
-      $(".mo").hide();
-        $(".mo24").show();
-      });
 
 
 

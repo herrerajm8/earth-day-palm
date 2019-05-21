@@ -1,6 +1,13 @@
 <?php
 class Welcome extends CI_Controller {
 
+	public function logout()
+	{
+		$this->session->set_userdata('email');
+		$this->session->sess_destroy();
+		redirect('');
+	}
+
 	public function index()
 	{
 		$this->load->view('index.php');

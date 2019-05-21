@@ -53,6 +53,12 @@
                 <button type = "button" class = "btn btn-info" data-toggle = "modal" data-target = "#myModal" style = "margin-top: 66px; margin-left:43px;">Profile</button>
             </div>
         </div>
+
+
+        <div class = "col-md-1">
+                        <a href = "<?php echo base_url('welcome/logout')?>"><button type="button" class = "btn btn-danger" style = "margin-top: 5px;">Logout</button></a>
+                    </div>
+
 </nav>
         <nav class="navbar navbar-default" style = 'background-color: #48211b;'>
   <div class="container-fluid">

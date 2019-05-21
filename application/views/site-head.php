@@ -59,11 +59,11 @@
         </div>
 
         <div class = "col-md-offset-11" style = "margin-top: 61px;">
-             <?php if((isset($_SESSION['email']))){ ?>
+             
                     <div class = "col-md-1">
-                        <a href = "logout.php"><button type="button" class = "btn btn-danger" style = "margin-top: 5px;">Logout</button></a>
+                        <a href = "<?php echo base_url('welcome/logout')?>"><button type="button" class = "btn btn-danger" style = "margin-top: 5px;">Logout</button></a>
                     </div>
-            <?php } ?>
+            
         </div>
     </div>
 </nav>
