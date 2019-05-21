@@ -1,0 +1,49 @@
+#registerBox{
+    background-color: #48211b;
+    margin-top: 50px; 
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-top: 20px;
+    margin-bottom: 50px;
+}
+
+#loginBox{
+    background-color: #48211b;
+    margin-top: 50px; 
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-top: 20px;
+}
+.home_nav{
+    padding-left: 10px;
+    z-index: 0;
+}
+
+.navbar-default .navbar-nav > li > a{
+    color: white;
+}
+.navbar-default .navbar-nav > li > a:hover{
+    background-color: black;
+    color: white;
+}
+.db_info{
+    font-size: 12px;
+    font-weight: bold;
+}
+.info{
+    font-size: 12px;
+}
+#announcement_container{
+    background-color: #a43828;
+    border-radius: 35px;
+}
+#announcement_title{
+    color: white;
+    font-weight: 600;
+}
+.textDark:hover{
+    color: white;
+}
+.btn-success{
+    margin-left: 15px;
+}
