@@ -29,10 +29,19 @@
     // while($row = mysqli_fetch_assoc($ret5)){
     //     $subSched_id = $row['subSchedID'];
     // }
+    foreach($stud as $val){
+          $email = $val->email;
+          $fname = $val->firstName;
+          $lname = $val->lastName;
+          $course = $val->course;
+          $age = $val->age;
+          $year = $val->year;
+          $ID = $val->studId;
+        }
 
-foreach($info as $val2){
-    $roomid = $val2->roomid;
-}
+// foreach($info as $val2){
+//     $roomid = $val2->roomid;
+// }
 ?>
 
 <html>
@@ -78,15 +87,16 @@ foreach($info as $val2){
 <title>WELCOME</title>
 <link rel="stylesheet"  href="<?php echo base_url('resources/style.css');?>">
 <link rel="stylesheet"  href="<?php echo base_url('resources/bootstrap/css/bootstrap.css');?>">
-<script src="<?php echo base_url('resources/bootstrap/js/bootstrap.min.js');?>"></script>
 <script src="<?php echo base_url('resources/jquery/jquery-3.2.1.min.js');?>"></script>
+<script src="<?php echo base_url('resources/bootstrap/js/bootstrap.min.js');?>"></script>
+
 </head>
 <header>
 <nav class = "nav navbar-default-top2 main_nav">
 <?php include 'site-head.php'?>
     <div class="container-fluid">
 
-       
+
 
 <div class="modal fade" id="myModal" role="dialog">
         <div class="modal-dialog">
@@ -101,34 +111,34 @@ foreach($info as $val2){
 
             <div class="modal-body">
                 <?php
-                foreach($stud as $studd){
+                //foreach($stud as $studd){
                     echo"
                         <table>
                             <tbody>
                                 <tr>
                                     <td class = 'info'>Full Name&nbsp&nbsp&nbsp&nbsp</td>
-                                    <td class = 'db_info'>".$studd->firstName." ".$studd->lastName."</td>
+                                    <td class = 'db_info'>".$fname." ".$lname."</td>
                                 </tr>
                                 <tr>
                                     <td class = 'info'>Student ID&nbsp&nbsp&nbsp&nbsp</td>
-                                    <td class = 'db_info'>".$studd->studId."</td>
+                                    <td class = 'db_info'>".$ID."</td>
                                 </tr>
                                  <tr>
                                     <td class = 'info'>Year Level&nbsp&nbsp&nbsp&nbsp</td>
-                                    <td class = 'db_info'>".$studd->year."</td>
+                                    <td class = 'db_info'>".$year."</td>
                                 </tr>
                                  <tr>
                                     <td class = 'info'>Age&nbsp&nbsp&nbsp&nbsp</td>
-                                    <td class = 'db_info'>".$studd->age."</td>
+                                    <td class = 'db_info'>".$age."</td>
                                 </tr>
                                 <tr>
                                     <td class = 'info'>ID&nbsp&nbsp&nbsp&nbsp</td>
-                                    <td class = 'db_info'>".$studd->studId."</td>
+                                    <td class = 'db_info'>".$ID."</td>
                                 </tr>
                             </tbody>
                         </table>
                     ";
-                  }
+                //  }
                 ?>
             </div>
 
@@ -234,7 +244,7 @@ foreach($info as $val2){
                     </td>
                     <td>
 
-                        <button type = 'button' class = 'btn btn-danger' data-toggle = 'modal' data-target='#contentModal".$val2->subjectID."'>View Schedule</button>
+                        <button type = 'button' class = 'bt btn btn-danger' data-toggle = 'modal' data-target='#contentModal".$val->subjectID."'>View Schedule</button>
                         <hr>
 
                     </td>
@@ -250,8 +260,9 @@ foreach($info as $val2){
 
     ?>
 <?php
-
+foreach($info as $val2){
 echo"
+<div class'mo".$val2->subjectID."'>
 <div class='modal fade' id='contentModal".$val2->subjectID."' role='dialog'>
         <div class='modal-dialog'>
 
@@ -298,10 +309,10 @@ echo"
 
                         <tr style = 'font-size:13px;'>
                             <td>
-                                ".$roomid."
+                                ".$val->roomid."
                             </td>
                             <td>
-                                ".$val2->fName."&nbsp".$val->lName."
+                                ".$val2->fName."&nbsp".$val2->lName."
                             </td>
                             <td>
                                 ".$val2->time_start."
@@ -334,6 +345,8 @@ echo"
         </div>
   </div>
   ";
+}
+
 
 ?>
 </body>
@@ -342,7 +355,17 @@ echo"
 
 <script>
 $(document).ready(function(){
+
+
     var id = <?php echo $ID; ?>;
+
+
+    $(".bt").click(function(){
+      $(".mo").hide();
+        $(".mo24").show();
+      });
+
+
 
     $(".enroll_btn").on("click", function(){
         var subjectSched_id = this.id;

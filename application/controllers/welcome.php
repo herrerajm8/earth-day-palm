@@ -16,9 +16,6 @@ class Welcome extends CI_Controller {
 		$this->load->model('usermodel');
 		$data['stud'] = $this->usermodel->getStud();
 		$data['info'] = $this->usermodel->getInfo();
-
-
-
 		$this->load->view('enrollment.php' ,$data);
 	}
 
@@ -101,14 +98,14 @@ class Welcome extends CI_Controller {
 
 		$this->form_validation->set_rules('loginemail','Username','Required');
 		$this->form_validation->set_rules('passLogin','Password','Required');
-		
+
 		$this->load->model('usermodel');
 
 		if($this->form_validation->run())
 		{
 				$email = $this->input->post('loginemail');
 				$password = $this->input->post('passLogin');
-				
+
 				if($this->usermodel->can_login($email,$password) == TRUE)
 				{
 					//set session data

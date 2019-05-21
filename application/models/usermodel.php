@@ -25,6 +25,10 @@ class usermodel extends CI_Model {
 
 		if($query->num_rows() > 0)
 		{
+			foreach($query->result() as $one){
+				$this->session->set_userdata('email',$one->email );
+			}
+
 			return true;
 		}
 		else
@@ -87,7 +91,7 @@ public function getSubj()
 				}
 			}
 			public function getRoom($room)
-						{	
+						{
 							$sdata = $this->session->userdata('email');
 							$this->db->where('roomID',$room);
 							$query = $this->db->get('room');
