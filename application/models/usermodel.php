@@ -93,7 +93,7 @@ public function getSubj()
 			public function getInfo()
 						{
 							//$this->db->where('email',$_SESSION['email']);
-							
+
 							$one = $this->getStud();
 							foreach($one as $data){
 							$this->db->select('*');
@@ -113,14 +113,12 @@ public function getSubj()
 						foreach($one as $data){
 
 						$this->db->select('*');
-						$this->db->from('stud_enrollment');
-						$this->db->join('students','stud_enrollment.studentid=students.studId');
-						$this->db->join('subjectschedule','stud_enrollment.subjectscheduleid=subjectschedule.subSchedID');
-						$this->db->join('teacher','subjectschedule.teacherid=teacher.teachersID');
+						$this->db->from('subjectschedule');
 						$this->db->join('subject','subjectschedule.subjectid=subject.subjectID');
+						$this->db->join('teacher','subjectschedule.teacherid=teacher.teachersID');
 						$this->db->where('teacher.teachersID',$data->teachersID);
 						$query = $this->db->get();
-						//print_r($data->teachersID);
+						print_r($data->teachersID);
 
 
 
@@ -166,8 +164,6 @@ public function getSubj()
 
 									$subCode = $this->getSubjID($_POST['subjectCode']);
 									$teacher = $this->getTeacherID();
-
-
 
 																	$data2 = array(
 																					'roomid' => $this->input->post('room'),

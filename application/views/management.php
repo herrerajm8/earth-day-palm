@@ -92,10 +92,17 @@ foreach($teach as $val){
 <header>
 <nav class = "nav navbar-default-top2 main_nav">
 
-      <?php include 'admin/asite-head.php'?>
     <div class="container-fluid">
 
-        
+        <div class="col-md-5" style = "margin-top:25px;">
+            <img src = "logo.jpeg" style = "height: 75px;">
+        </div>
+
+        <div class = "col-md-offset-10">
+            <div class = "col-md-1">
+                <button type = "button" class = "btn btn-info" data-toggle = "modal" data-target = "#myModal" style = "margin-top: 66px; margin-left:43px;">Profile</button>
+            </div>
+        </div>
 
         <div class="modal fade" id="myModal" role="dialog">
             <div class="modal-dialog">
@@ -193,7 +200,16 @@ foreach($teach as $val){
     </div>
 </nav>
 
-
+<nav class="navbar navbar-default" style = 'background-color: #48211b;'>
+  <div class="container-fluid">
+    <ul class="nav navbar-nav home_nav">
+       <li><a href="<?php echo base_url('welcome/admin'); ?>">Home</a></li>
+        <li><a href="<?php echo base_url('welcome/management'); ?>">Student Management</a></li>
+        <li><a href="<?php echo base_url('welcome/classManagement'); ?>">Class Management</a></li>
+        <li><a href="<?php echo base_url('welcome/adminClasses'); ?>">All Classes</a></li>
+    </ul>
+  </div>
+</nav>
 
 </header>
 <body>
@@ -236,19 +252,19 @@ foreach($teach as $val){
                         &nbsp&nbsp{$val->subjectName}&nbsp<hr>
                     </td>
                     <td>
-                        &nbsp&nbsp{$row2['subjectCode']}&nbsp<hr>
+                        &nbsp&nbsp$val->subjectCode&nbsp<hr>
                     </td>
                     <td>
-                        &nbsp&nbsp{$row2['course']}&nbsp<hr>
+                        &nbsp&nbsp$val->courseType&nbsp<hr>
                     </td>
                     <td>
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
-                        {$row2['units']}
+                        $val->units
                         &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
                         <hr>
                     </td>
                     <td>
-                        <a href = 'list.php?subject={$row2['subjectID']}' >
+                        <a href = 'list.php?subject=$val->subjectID' >
 
                             <button type = 'button' class = 'btn btn-info'>
                                 View Class List
