@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 /*Registraion*/
 /*require("connect.php");
 

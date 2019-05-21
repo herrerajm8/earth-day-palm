@@ -97,20 +97,28 @@ class Welcome extends CI_Controller {
 	public function student_login_validate()
 	{
 		$this->load->library('form_validation');
+		$this->load->library('session');
+
 		$this->form_validation->set_rules('loginemail','Username','Required');
 		$this->form_validation->set_rules('passLogin','Password','Required');
+		
+		$this->load->model('usermodel');
 
 		if($this->form_validation->run())
 		{
 				$email = $this->input->post('loginemail');
 				$password = $this->input->post('passLogin');
-				$this->load->model('usermodel');
-				if($this->usermodel->can_login($email,$password))
+				
+				if($this->usermodel->can_login($email,$password) == TRUE)
 				{
-					$session_data = array(
-						'loginemail' => $email
+					//set session data
+					$s_data = array(
+						'email' => $email,
+						'isloggedin' => TRUE
 					);
-					//$this->session->set_userdata($session_data);
+					$this->session->set_userdata('userdata',$s_data);
+
+
 					$this->load->view('homepage');
 				}
 				else

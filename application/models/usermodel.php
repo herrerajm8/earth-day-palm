@@ -1,6 +1,22 @@
 <?php
 class usermodel extends CI_Model {
 
+	function _construct(){
+        parrent::Controller();
+        $this->is_logged_in();
+    }
+
+    function is_login(){
+    	$isloggedin = $this->session->userdata('user_data');
+    	$user_name = $isloggedin['loginemail'];
+    	$loginstatus = $session_data['isloggedin'];
+
+    	if(!isset($is_logged_in) || $is_logged_in !== true){
+            echo 'You don\'t have permission to access this page. <a href="../login>Login</a>"';
+            die();
+        }
+    }
+
 	function can_login($email,$password)
 	{
 		$this->db->where('email',$email);
@@ -37,7 +53,10 @@ class usermodel extends CI_Model {
 
 public function getStud()
 			{
-				$this->db->where('email','qwe@gmail.com');
+				$sdata = $this->session->userdata('email');
+				//$email = $sdata['email'];
+				$this->db->where('email',$sdata);
+
 				$query = $this->db->get('students');
 
 				if($query->num_rows() > 0)
@@ -47,7 +66,8 @@ public function getStud()
 }
 public function getTeacher()
 			{
-				$this->db->where('email','qwe@gmail.com');
+				$sdata = $this->session->userdata('email');
+				$this->db->where('email',$sdata);
 				$query = $this->db->get('teacher');
 
 				if($query->num_rows() > 0)
@@ -67,7 +87,8 @@ public function getSubj()
 				}
 			}
 			public function getRoom($room)
-						{
+						{	
+							$sdata = $this->session->userdata('email');
 							$this->db->where('roomID',$room);
 							$query = $this->db->get('room');
 
@@ -79,7 +100,7 @@ public function getSubj()
 						public function getTeacherID()
 									{
 
-											$this->db->where('email','qwe@gmail.com');
+											$this->db->where('email',$sdata);
 											$query = $this->db->get('teacher');
 
 											if($query->num_rows() > 0)
