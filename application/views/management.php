@@ -249,7 +249,7 @@ foreach($teach as $val){
 
                 <tr>
                     <td>
-                        &nbsp&nbsp{$val->subjectName}&nbsp<hr>
+                        &nbsp&nbsp$val->subjectName&nbsp<hr>
                     </td>
                     <td>
                         &nbsp&nbsp$val->subjectCode&nbsp<hr>
